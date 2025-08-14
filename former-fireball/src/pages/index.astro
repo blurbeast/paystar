@@ -1,0 +1,23 @@
+---
+import * as Client from '../../packages/installment_payment_contract/src/index.js';
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<Welcome />
+</Layout>
+
+---
+
+<!-- import * as Client from './packages/installment_payment_contract'; -->
+ const contract = new Client.Client({
+	...Client.networks.testnet,
+	rpc: 'https://soroban-testnet.stellar.org:443'
+ });
+
+ const { result } = await contract.initialize({admin: "GBY65F3E44WSM5N2ZVWOXSWO6H7S3IQ2UJNYAE7HE6CYHSR64KTFNTR2"});
+ const response = result.json(" ");
+---
